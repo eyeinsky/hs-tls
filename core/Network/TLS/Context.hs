@@ -34,6 +34,7 @@ module Network.TLS.Context
     , withWriteLock
     , withStateLock
     , withRWLock
+    , getTlsAppInfo
 
     -- * information
     , Information(..)
@@ -219,3 +220,5 @@ contextHookSetCertificateRecv context f =
 contextHookSetLogging :: Context -> Logging -> IO ()
 contextHookSetLogging context loggingCallbacks =
     contextModifyHooks context (\hooks -> hooks { hookLogging = loggingCallbacks })
+
+getTlsAppInfo = ctxClientCerts

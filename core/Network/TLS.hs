@@ -94,6 +94,9 @@ module Network.TLS
     , HostName
     , MaxFragmentEnum(..)
 
+    , getTlsAppInfo
+    , CertificateChain
+
     -- * Advanced APIs
     -- ** Backend
     , ctxConnection
