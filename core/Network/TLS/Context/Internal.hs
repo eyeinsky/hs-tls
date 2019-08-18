@@ -87,6 +87,7 @@ import Control.Exception (throwIO, Exception())
 import Data.IORef
 import Data.Tuple
 
+import Data.X509
 
 -- | Information related to a running context, e.g. current cipher
 data Information = Information
@@ -129,6 +130,7 @@ data Context = Context
     , ctxPendingActions   :: IORef [PendingAction]
     , ctxCertRequests     :: IORef [Handshake13]  -- ^ pending PHA requests
     , ctxKeyLogger        :: String -> IO ()
+    , ctxClientCerts      :: IORef (Maybe CertificateChain)
     }
 
 data Established = NotEstablished
